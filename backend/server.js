@@ -31,9 +31,9 @@ app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, '../frontend/dist', 'index.html'));
 });
 
-app.listen(PORT, () => {
+app.listen(PORT, async () => {
     try {
-        connectMongoDB();
+        await connectMongoDB();
         console.log(`Server running on : http://localhost:${PORT}`);
     } catch (err) {
         console.error(" Error connecting to MongoDB:", err.message);
