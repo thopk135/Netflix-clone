@@ -34,6 +34,8 @@ app.get('*', (req, res) => {
 app.listen(PORT, async () => {
     try {
         await connectMongoDB();
+        console.log(process.env.MONGODB_URI);
+        console.log(PORT);
         console.log(`Server running on : http://localhost:${PORT}`);
     } catch (err) {
         console.error(" Error connecting to MongoDB:", err.message);
